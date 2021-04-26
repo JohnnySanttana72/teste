@@ -10,7 +10,8 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return view('index');
+        dd(app_path(),base_path());
+        // return view('index');
 
     }
 
