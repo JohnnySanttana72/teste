@@ -20,10 +20,10 @@ use Illuminate\Support\Facades\Auth;
 /* Rota para Index */
 Route::get('/', 'IndexController@index');
 
-Route::post('/public/publishMqtt', 'IndexController@publishMqtt');
+Route::post('publishMqtt', 'IndexController@publishMqtt');
 
-Route::post('/public/republishMqtt', 'IndexController@republishMqtt');
+Route::post('republishMqtt', 'IndexController@republishMqtt');
 
-Route::post('/public/subscribeMqtt', 'IndexController@subscribeMqtt');
+Route::post('subscribeMqtt', 'IndexController@subscribeMqtt');
 
 

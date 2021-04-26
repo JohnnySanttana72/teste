@@ -44,7 +44,7 @@ class IndexController extends Controller
                 $mqtt->interrupt();
             });
 
-            $mqtt->loop(true, false, 200 );
+            $mqtt->loop(true);
             
 
             return response()->json(['message' => 'publicado'], 200);
