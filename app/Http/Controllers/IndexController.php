@@ -10,9 +10,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        dd(app_path(),base_path());
-        // return view('index');
-
+        return view('index');
     }
 
     public function publishMqtt(Request $request){
