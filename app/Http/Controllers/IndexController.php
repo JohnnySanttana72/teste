@@ -10,9 +10,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        dd(base_path('certificates'), base_path('certificatesfaebd263ac-private.pem.key'),  base_path('faebd263ac-certificate.pem.crt'), public_path());
         return view('index');
-
     }
 
     public function publishMqtt(Request $request){
