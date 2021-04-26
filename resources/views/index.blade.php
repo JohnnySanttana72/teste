@@ -162,7 +162,7 @@
         let _token   = $('meta[name="csrf-token"]').attr('content');
 
         $.ajax({
-            url: '/publishMqtt',
+            url: '/public/publishMqtt',
             type:"POST",
             data:{
                 status:status,
@@ -184,7 +184,7 @@
         let _token   = $('meta[name="csrf-token"]').attr('content');
 
         $.ajax({
-            url: '/republishMqtt',
+            url: '/public/republishMqtt',
             type:"POST",
             data:{
                 status:status,
@@ -207,7 +207,7 @@
         let _token   = $('meta[name="csrf-token"]').attr('content');
   
         $.ajax({
-            url: '/subscribeMqtt',
+            url: '/public/subscribeMqtt',
             type:"POST",
             data:{
                 topic:topic,
