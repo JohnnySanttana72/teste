@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        // dd(public_path());
+        dd(realpath(dirname('faebd263ac-private.pem.key')));
         return view('index');
     }
 
