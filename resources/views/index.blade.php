@@ -2,9 +2,9 @@
 <html lang="pt-br">
 
 <head>
-    <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 </head>
 
 <body>
