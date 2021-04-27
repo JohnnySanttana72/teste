@@ -10,24 +10,20 @@ class IndexController extends Controller
 {
     public function index()
     {
+        
         return view('index');
     }
 
     public function publishMqtt(Request $request){
 
-        $msg = array(
-            "state" => array(
-                "desired" => array(
-                    "status_LED" => $request->status
-                ),
-            ),
-        );
-        
-        $json = json_encode($msg);
+        $msg = '{"state": { "desired": { "status_LED": '.$request->status.' }}}';
+          
+        //dd($msg);
+        //$json = json_encode($msg);
 
         
         $mqtt = MQTT::connection();
-        $mqtt->publish('$aws/things/NodeMCU/shadow/update/accepted', $json);
+        $mqtt->publish('$aws/things/NodeMCU/shadow/update/accepted', $msg);
 
         if($mqtt == true) {
 
@@ -54,18 +50,12 @@ class IndexController extends Controller
 
     public function republishMqtt(Request $request){
        
-        $msg = array(
-            "state" => array(
-                "desired" => array(
-                    "status_LED" => $request->status
-                ),
-            ),
-        );
+        $msg = '{"state": { "desired": { "status_LED": '.$request->status.' }}}';
         
-        $json = json_encode($msg);
+        // $json = json_encode($msg);
         
         $mqtt = MQTT::connection();
-        $mqtt->publish('$aws/things/NodeMCU/shadow/update', $json);
+        $mqtt->publish('$aws/things/NodeMCU/shadow/update', $msg);
 
         if($mqtt == true) {
             return response()->json(['message' => 'Publicação para atualizar Shadow Device'], 200);

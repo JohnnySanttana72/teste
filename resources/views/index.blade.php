@@ -4,24 +4,64 @@
 <head>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <div href="" class="cube-switch active">
-        <span class="switch">
-            <span class="switch-state off">Off</span>
-            <span class="switch-state on">On</span>
-        </span>
-    </div>
-    <div id="light-bulb" class="off ui-draggable">
-        <div id="light-bulb2" style="opacity: 1; "></div>
-    </div>
+    
+    <!-- <div class="row text-center">
+        <div class="col-sm-4">
+          <div class="contact-detail-box">
+            <i class="fa fa-th fa-3x text-colored"></i>
+            <h4>Acionamento Remoto</h4>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="contact-detail-box">
+            <i class="fa fa-map-marker fa-3x text-colored"></i>
+            <h4>Agendamento Hora/Temporizador</h4>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="contact-detail-box">
+            <i class="fa fa-book fa-3x text-colored"></i>
+            <h4>Consumo Mensal</h4>
+          </div>
+        </div>
+    </div> -->
+
+    <section>
+        <div class="container">
+          <div class="row justify-center">
+            <div class="col-6">
+                <div href="" class="cube-switch active">
+                    <span class="switch">
+                        <span class="switch-state off">Off</span>
+                        <span class="switch-state on">On</span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div id="light-bulb" class="off ui-draggable">
+                    <div id="light-bulb2" style="opacity: 1; "></div>
+                </div>
+            </div>
+          </div>
+        </div>  
+    </section>
+    
 </body>
 
 <style>
     body {
         background: rgb(70, 72, 75);
+    }
+
+    h4 {
+        color:#f8f9fa;
     }
 
     /* SWITCH */
@@ -162,7 +202,7 @@
         let _token   = $('meta[name="csrf-token"]').attr('content');
 
         $.ajax({
-            url: '{{url("publishMqtt")}}',
+            url: '/publishMqtt',
             type:"POST",
             data:{
                 status:status,
@@ -184,7 +224,7 @@
         let _token   = $('meta[name="csrf-token"]').attr('content');
 
         $.ajax({
-            url: '{{url("republishMqtt")}}',
+            url: '/republishMqtt',
             type:"POST",
             data:{
                 status:status,
@@ -207,7 +247,7 @@
         let _token   = $('meta[name="csrf-token"]').attr('content');
   
         $.ajax({
-            url: '{{url("subscribeMqtt")}}',
+            url: '/subscribeMqtt',
             type:"POST",
             data:{
                 topic:topic,
